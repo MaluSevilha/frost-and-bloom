@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4290903465386136999}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
-  jumpForce: 12
+  jumpForce: 15
   groundCheck: {fileID: 8985974928231989962}
   groundRadius: 0.2
   groundLayer:

@@ -2,64 +2,74 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movimento")]
     public float speed = 5f;
     public float jumpForce = 12f;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
+
+    [Header("Personagens")]
     public RuntimeAnimatorController bloomController;
     public RuntimeAnimatorController frostController;
 
-    private Animator animator;
-    private bool isBloom = true;
+    private Animator anim;
     private Rigidbody2D rb;
     private bool isGrounded;
     private float moveInput;
+    private bool isBloom = true;
+    private bool isDead = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = bloomController;
+        rb   = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        anim.runtimeAnimatorController = bloomController;
     }
 
     void Update()
     {
-        // Movimento horizontal
-        moveInput = Input.GetAxis("Horizontal");
+        if (isDead) return;
 
-        // Atualiza animação
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
-
-        // Confere se o player está no chão
+        moveInput  = Input.GetAxis("Horizontal");
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
-        // Flip do personagem
-        if (moveInput > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
-        // Pulo
+        if (moveInput > 0)      transform.localScale = new Vector3( 1, 1, 1);
+        else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        }
 
-        // Mudar entre Bloom e Frost
         if (Input.GetKeyDown(KeyCode.Q))
         {
             isBloom = !isBloom;
-
-            if (isBloom)
-                animator.runtimeAnimatorController = bloomController;
-            else
-                animator.runtimeAnimatorController = frostController;
+            anim.runtimeAnimatorController = isBloom ? bloomController : frostController;
         }
     }
 
     void FixedUpdate()
     {
+        if (isDead) return;
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+    }
+
+    public void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        anim.SetTrigger("Die");
+
+        rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Static;
+
+        Invoke("Disappear", 1f);
+    }
+
+    void Disappear()
+    {
+        gameObject.SetActive(false);
     }
 }
