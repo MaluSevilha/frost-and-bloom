@@ -9,10 +9,22 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Menu_Inicial.unity
+    path: Assets/Scenes/HUD/Menu_Inicial.unity
     guid: c8b137bcdeb74b742b36f18638ba93d2
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/HUD/Menu_Derrota.unity
+    guid: e97d2650f3e054c48b117ac8a4d5dd52
+  - enabled: 1
+    path: Assets/Scenes/Fase/Tutorial.unity
     guid: 24ec1a02166bfda48b6c69608fbb687e
+  - enabled: 1
+    path: Assets/Scenes/Fase/Fase1.unity
+    guid: d40483919d027a040b9420a658857e1c
+  - enabled: 1
+    path: Assets/Scenes/Fase/Fase2.unity
+    guid: 181e837049ac6dc459cc3af42ddfa5f4
+  - enabled: 1
+    path: Assets/Scenes/Fase/Final.unity
+    guid: 93b62e5eff7322d43b3e4b13293542d1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

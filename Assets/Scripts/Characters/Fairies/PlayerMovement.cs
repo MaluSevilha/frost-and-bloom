@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -61,15 +63,18 @@ public class PlayerMovement : MonoBehaviour
         isDead = true;
 
         anim.SetTrigger("Die");
-
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
 
-        Invoke("Disappear", 1f);
+        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+
+        StartCoroutine(LoadDeathMenu());
     }
 
-    void Disappear()
+    private IEnumerator LoadDeathMenu()
     {
-        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Menu_Derrota");
     }
 }
