@@ -10,7 +10,7 @@ public class WorldStateManager : MonoBehaviour
 {
     public static WorldStateManager Instance { get; private set; }
 
-    public WorldState CurrentState { get; private set; } = WorldState.Frost;
+    public WorldState CurrentState { get; private set; } = WorldState.Bloom;
 
     public event System.Action<WorldState> OnStateChanged;
 

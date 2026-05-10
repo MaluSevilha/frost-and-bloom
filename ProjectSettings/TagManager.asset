@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - EndScene
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Far
+    uniqueID: 3239658821
+    locked: 0
+  - name: Mid
+    uniqueID: 2640810815
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: af278b076fc27484aa053602f826b260
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4870315054703108752
+    second: Pixel_Woods_Tileset_0
+  - first:
+      213: 1404331681004132403
+    second: Pixel_Woods_Tileset_1
+  - first:
+      213: -143466191476741344
+    second: Pixel_Woods_Tileset_2
+  - first:
+      213: 4056721603794912349
+    second: Pixel_Woods_Tileset_3
+  - first:
+      213: 7606556442385293650
+    second: Pixel_Woods_Tileset_4
+  - first:
+      213: -2839092912058302705
+    second: Pixel_Woods_Tileset_5
+  - first:
+      213: 1548189502606781742
+    second: Pixel_Woods_Tileset_6
+  - first:
+      213: 380065574183161027
+    second: Pixel_Woods_Tileset_7
+  - first:
+      213: -7835658681748223727
+    second: Pixel_Woods_Tileset_8
+  - first:
+      213: -7328236912274342308
+    second: Pixel_Woods_Tileset_9
+  - first:
+      213: 8185955308707110612
+    second: Pixel_Woods_Tileset_10
+  - first:
+      213: 6744328674497926810
+    second: Pixel_Woods_Tileset_11
+  - first:
+      213: 5381814239144165821
+    second: Pixel_Woods_Tileset_12
+  - first:
+      213: 4458828222990484940
+    second: Pixel_Woods_Tileset_13
+  - first:
+      213: -1187647628622023223
+    second: Pixel_Woods_Tileset_14
+  - first:
+      213: 5599628001146250768
+    second: Pixel_Woods_Tileset_15
+  - first:
+      213: 4409327774999633963
+    second: Pixel_Woods_Tileset_16
+  - first:
+      213: -3448868380677433661
+    second: Pixel_Woods_Tileset_17
+  - first:
+      213: -1793545543150091546
+    second: Pixel_Woods_Tileset_18
+  - first:
+      213: -4774904222071111987
+    second: Pixel_Woods_Tileset_19
+  - first:
+      213: 4807130919342675569
+    second: Pixel_Woods_Tileset_20
+  - first:
+      213: 3829045609782011014
+    second: Pixel_Woods_Tileset_21
+  - first:
+      213: 8783678390756996790
+    second: Pixel_Woods_Tileset_22
+  - first:
+      213: 3047471178868661255
+    second: Pixel_Woods_Tileset_23
+  - first:
+      213: -5375883659504681388
+    second: Pixel_Woods_Tileset_24
+  - first:
+      213: -13941167473894745
+    second: Pixel_Woods_Tileset_25
+  - first:
+      213: 8959198787144337361
+    second: Pixel_Woods_Tileset_26
+  - first:
+      213: 6468489373918310080
+    second: Pixel_Woods_Tileset_27
+  - first:
+      213: -1868901334831028865
+    second: Pixel_Woods_Tileset_28
+  - first:
+      213: -1815665708132650051
+    second: Pixel_Woods_Tileset_29
+  - first:
+      213: -3626430278369045674
+    second: Pixel_Woods_Tileset_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_97
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574fa11ee4a4745479d24b067af0ea0b
+      internalID: 1848862579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_98
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c84fe2ea6179c41841eaed40de6eb0
+      internalID: -253878532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_99
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5302a791a02ee314ebb985b34036c10f
+      internalID: -1668777911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_100
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112a6d1cf4077bf429d63be5c02fe8a0
+      internalID: -1463900652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_111
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3acb8c91c9cca46994670b1ab6a789
+      internalID: 490699899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_112
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ce79dada3d00b4c9c09b4a299d7ae8
+      internalID: -787422498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_113
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b407f0d26e97acb439b6b77a4fc67793
+      internalID: -620396742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_114
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953ba9a12b949d245870f975ef204d62
+      internalID: 1917816328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_87
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7691ac6eda49618448dea141ca91d7ac
+      internalID: 2072693169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_88
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b294f4868bf1b84cb77e1494f1501d7
+      internalID: -2070616338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_89
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a76ceb912519e47a3f51f310cd1f70
+      internalID: 1375097850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_101
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2aa67196d07e8244b813d68f68cc8f4
+      internalID: -1478680119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel_Woods_Tileset_102
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7a436107e315f46a083b793e9ad60c
+      internalID: 1822625846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 962c9018de9940d44b489452a1d4aece
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pixel_Woods_Tileset_0: -4870315054703108752
+      Pixel_Woods_Tileset_1: 1404331681004132403
+      Pixel_Woods_Tileset_10: 8185955308707110612
+      Pixel_Woods_Tileset_100: -1463900652
+      Pixel_Woods_Tileset_101: -1478680119
+      Pixel_Woods_Tileset_102: 1822625846
+      Pixel_Woods_Tileset_103: -377924254
+      Pixel_Woods_Tileset_104: 2145169385
+      Pixel_Woods_Tileset_105: 543895503
+      Pixel_Woods_Tileset_106: 1170614608
+      Pixel_Woods_Tileset_107: -373889947
+      Pixel_Woods_Tileset_108: 1344639942
+      Pixel_Woods_Tileset_109: -749212149
+      Pixel_Woods_Tileset_11: 6744328674497926810
+      Pixel_Woods_Tileset_110: 2071956935
+      Pixel_Woods_Tileset_111: 490699899
+      Pixel_Woods_Tileset_112: -787422498
+      Pixel_Woods_Tileset_113: -620396742
+      Pixel_Woods_Tileset_114: 1917816328
+      Pixel_Woods_Tileset_115: 503051341
+      Pixel_Woods_Tileset_116: 2039818719
+      Pixel_Woods_Tileset_117: -1932472372
+      Pixel_Woods_Tileset_118: 622483919
+      Pixel_Woods_Tileset_119: 1019912032
+      Pixel_Woods_Tileset_12: 5381814239144165821
+      Pixel_Woods_Tileset_120: -2072193832
+      Pixel_Woods_Tileset_121: -1081337058
+      Pixel_Woods_Tileset_122: -255159932
+      Pixel_Woods_Tileset_123: 602364504
+      Pixel_Woods_Tileset_124: -374410679
+      Pixel_Woods_Tileset_125: 618839738
+      Pixel_Woods_Tileset_126: 598870543
+      Pixel_Woods_Tileset_127: -72075469
+      Pixel_Woods_Tileset_128: -724563058
+      Pixel_Woods_Tileset_129: -1501114857
+      Pixel_Woods_Tileset_13: 4458828222990484940
+      Pixel_Woods_Tileset_130: -1798233094
+      Pixel_Woods_Tileset_131: -1794783749
+      Pixel_Woods_Tileset_132: 483140163
+      Pixel_Woods_Tileset_133: 1499860309
+      Pixel_Woods_Tileset_134: -752243531
+      Pixel_Woods_Tileset_135: 2115912894
+      Pixel_Woods_Tileset_136: -1482998556
+      Pixel_Woods_Tileset_137: 2139448457
+      Pixel_Woods_Tileset_138: 769310786
+      Pixel_Woods_Tileset_139: 85349033
+      Pixel_Woods_Tileset_14: -1187647628622023223
+      Pixel_Woods_Tileset_140: -1011628360
+      Pixel_Woods_Tileset_141: 1066550226
+      Pixel_Woods_Tileset_142: -639185119
+      Pixel_Woods_Tileset_143: -1059182922
+      Pixel_Woods_Tileset_144: -223601324
+      Pixel_Woods_Tileset_145: -189702179
+      Pixel_Woods_Tileset_146: -931244355
+      Pixel_Woods_Tileset_147: 1995520101
+      Pixel_Woods_Tileset_148: -829609816
+      Pixel_Woods_Tileset_149: 755498041
+      Pixel_Woods_Tileset_15: 5599628001146250768
+      Pixel_Woods_Tileset_150: -1286715940
+      Pixel_Woods_Tileset_151: -1907053000
+      Pixel_Woods_Tileset_152: 1475760367
+      Pixel_Woods_Tileset_153: -1755552208
+      Pixel_Woods_Tileset_154: 285079718
+      Pixel_Woods_Tileset_155: -1206871076
+      Pixel_Woods_Tileset_156: 298738173
+      Pixel_Woods_Tileset_157: -386394215
+      Pixel_Woods_Tileset_158: 1555297182
+      Pixel_Woods_Tileset_159: -906401207
+      Pixel_Woods_Tileset_16: 4409327774999633963
+      Pixel_Woods_Tileset_17: -3448868380677433661
+      Pixel_Woods_Tileset_18: -1793545543150091546
+      Pixel_Woods_Tileset_19: -4774904222071111987
+      Pixel_Woods_Tileset_2: -143466191476741344
+      Pixel_Woods_Tileset_20: 4807130919342675569
+      Pixel_Woods_Tileset_21: 3829045609782011014
+      Pixel_Woods_Tileset_22: 8783678390756996790
+      Pixel_Woods_Tileset_23: 3047471178868661255
+      Pixel_Woods_Tileset_24: -5375883659504681388
+      Pixel_Woods_Tileset_25: -13941167473894745
+      Pixel_Woods_Tileset_26: 8959198787144337361
+      Pixel_Woods_Tileset_27: 6468489373918310080
+      Pixel_Woods_Tileset_28: -1868901334831028865
+      Pixel_Woods_Tileset_29: -1815665708132650051
+      Pixel_Woods_Tileset_3: 4056721603794912349
+      Pixel_Woods_Tileset_30: -3626430278369045674
+      Pixel_Woods_Tileset_31: 1976680159
+      Pixel_Woods_Tileset_32: 1887635239
+      Pixel_Woods_Tileset_33: -48325151
+      Pixel_Woods_Tileset_34: 2047723884
+      Pixel_Woods_Tileset_35: 85763859
+      Pixel_Woods_Tileset_36: -404252784
+      Pixel_Woods_Tileset_37: -2020454387
+      Pixel_Woods_Tileset_38: 103882388
+      Pixel_Woods_Tileset_39: -1087128143
+      Pixel_Woods_Tileset_4: 7606556442385293650
+      Pixel_Woods_Tileset_40: -103691861
+      Pixel_Woods_Tileset_41: 1936119205
+      Pixel_Woods_Tileset_42: 511800013
+      Pixel_Woods_Tileset_43: -1497234386
+      Pixel_Woods_Tileset_44: -688398607
+      Pixel_Woods_Tileset_45: -34057154
+      Pixel_Woods_Tileset_46: 1596720258
+      Pixel_Woods_Tileset_47: 1070550165
+      Pixel_Woods_Tileset_48: -461329300
+      Pixel_Woods_Tileset_49: 1057768248
+      Pixel_Woods_Tileset_5: -2839092912058302705
+      Pixel_Woods_Tileset_50: 649994612
+      Pixel_Woods_Tileset_51: -584882575
+      Pixel_Woods_Tileset_52: -962093879
+      Pixel_Woods_Tileset_53: 1078051032
+      Pixel_Woods_Tileset_54: -2043489777
+      Pixel_Woods_Tileset_55: 372321935
+      Pixel_Woods_Tileset_56: 2001204087
+      Pixel_Woods_Tileset_57: 293269550
+      Pixel_Woods_Tileset_58: 460964638
+      Pixel_Woods_Tileset_59: 424072898
+      Pixel_Woods_Tileset_6: 1548189502606781742
+      Pixel_Woods_Tileset_60: 291871614
+      Pixel_Woods_Tileset_61: -1001474353
+      Pixel_Woods_Tileset_62: 1090717889
+      Pixel_Woods_Tileset_63: 738051532
+      Pixel_Woods_Tileset_64: 1177452418
+      Pixel_Woods_Tileset_65: 1223352476
+      Pixel_Woods_Tileset_66: 625554145
+      Pixel_Woods_Tileset_67: 1638756280
+      Pixel_Woods_Tileset_68: -945314664
+      Pixel_Woods_Tileset_69: -1309629549
+      Pixel_Woods_Tileset_7: 380065574183161027
+      Pixel_Woods_Tileset_70: 811012871
+      Pixel_Woods_Tileset_71: -2106067018
+      Pixel_Woods_Tileset_72: 113578195
+      Pixel_Woods_Tileset_73: -2039579064
+      Pixel_Woods_Tileset_74: -1809342665
+      Pixel_Woods_Tileset_75: 2093338630
+      Pixel_Woods_Tileset_76: 960847569
+      Pixel_Woods_Tileset_77: -397497493
+      Pixel_Woods_Tileset_78: -7570078
+      Pixel_Woods_Tileset_79: -1998698422
+      Pixel_Woods_Tileset_8: -7835658681748223727
+      Pixel_Woods_Tileset_80: -1976806923
+      Pixel_Woods_Tileset_81: 1588271024
+      Pixel_Woods_Tileset_82: -1506289370
+      Pixel_Woods_Tileset_83: -1378538124
+      Pixel_Woods_Tileset_84: 1253442776
+      Pixel_Woods_Tileset_85: 206241811
+      Pixel_Woods_Tileset_86: -1486180381
+      Pixel_Woods_Tileset_87: 2072693169
+      Pixel_Woods_Tileset_88: -2070616338
+      Pixel_Woods_Tileset_89: 1375097850
+      Pixel_Woods_Tileset_9: -7328236912274342308
+      Pixel_Woods_Tileset_90: 319503290
+      Pixel_Woods_Tileset_91: 885143568
+      Pixel_Woods_Tileset_92: 817275666
+      Pixel_Woods_Tileset_93: 1310395623
+      Pixel_Woods_Tileset_94: 1099764121
+      Pixel_Woods_Tileset_95: 689372223
+      Pixel_Woods_Tileset_96: 911767222
+      Pixel_Woods_Tileset_97: 1848862579
+      Pixel_Woods_Tileset_98: -253878532
+      Pixel_Woods_Tileset_99: -1668777911
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
