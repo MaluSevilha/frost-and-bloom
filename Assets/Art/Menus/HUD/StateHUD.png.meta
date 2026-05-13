@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: f249e273191e94e4dbf29caf5d06a3a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -732563782074260754
+    second: StateHUD_0
+  - first:
+      213: 9196491877737643108
+    second: StateHUD_1
+  - first:
+      213: -9127863871422947353
+    second: StateHUD_2
+  - first:
+      213: -1787396882384550881
+    second: StateHUD_3
+  - first:
+      213: 4036308510435968319
+    second: StateHUD_4
+  - first:
+      213: -5398829748402010155
+    second: StateHUD_5
+  - first:
+      213: -4079965365662865616
+    second: StateHUD_6
+  - first:
+      213: 6847933000384097454
+    second: StateHUD_7
+  - first:
+      213: -5581064780635283154
+    second: StateHUD_8
+  - first:
+      213: 6214084550058336252
+    second: StateHUD_9
+  - first:
+      213: 3270233804488807169
+    second: StateHUD_10
+  - first:
+      213: -7426199424845909037
+    second: StateHUD_11
+  - first:
+      213: -6959884782089643305
+    second: StateHUD_12
+  - first:
+      213: -1963881227790968022
+    second: StateHUD_13
+  - first:
+      213: 4593162904069506784
+    second: StateHUD_14
+  - first:
+      213: -2452912564119575446
+    second: StateHUD_15
+  - first:
+      213: 6224077880216710226
+    second: StateHUD_16
+  - first:
+      213: 1853278781861526169
+    second: StateHUD_17
+  - first:
+      213: -4138735600262866940
+    second: StateHUD_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: StateHUD_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 328
+        width: 221
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2a52a1f1965d5f0800000000000000
+      internalID: -732563782074260754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1
+        width: 651
+        height: 1019
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c315043a080af70800000000000000
+      internalID: 9196491877737643108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 624
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef96b1ab20535180800000000000000
+      internalID: -9127863871422947353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_3
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 13
+        width: 430
+        height: 1009
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1404d86104e137e0800000000000000
+      internalID: -1787396882384550881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_4
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 591
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f350c687439d30830800000000000000
+      internalID: 4036308510435968319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_5
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 441
+        width: 210
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d7cfa3b2f08315b0800000000000000
+      internalID: -5398829748402010155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_6
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 540
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037a4c3dd1d0167c0800000000000000
+      internalID: -4079965365662865616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_7
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 466
+        width: 66
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaca19d28ceb80f50800000000000000
+      internalID: 6847933000384097454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_8
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 514
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e216ac9d6231c82b0800000000000000
+      internalID: -5581064780635283154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_9
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 514
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff587289fcdc3650800000000000000
+      internalID: 6214084550058336252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_10
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 514
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10397099154326d20800000000000000
+      internalID: 3270233804488807169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_11
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 515
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d379d208f6d0f890800000000000000
+      internalID: -7426199424845909037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_12
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 509
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7da56ed6aa5896f90800000000000000
+      internalID: -6959884782089643305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_13
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 513
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b167cad64eeb4e0800000000000000
+      internalID: -1963881227790968022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_14
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 514
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6809c53513ebf30800000000000000
+      internalID: 4593162904069506784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_15
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 511
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a646f8ed40185fdd0800000000000000
+      internalID: -2452912564119575446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_16
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 512
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ceea00bdd506650800000000000000
+      internalID: 6224077880216710226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_17
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 447
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99aff96ab3b28b910800000000000000
+      internalID: 1853278781861526169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StateHUD_18
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 464
+        width: 39
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408911746e14096c0800000000000000
+      internalID: -4138735600262866940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      StateHUD_0: -732563782074260754
+      StateHUD_1: 9196491877737643108
+      StateHUD_10: 3270233804488807169
+      StateHUD_11: -7426199424845909037
+      StateHUD_12: -6959884782089643305
+      StateHUD_13: -1963881227790968022
+      StateHUD_14: 4593162904069506784
+      StateHUD_15: -2452912564119575446
+      StateHUD_16: 6224077880216710226
+      StateHUD_17: 1853278781861526169
+      StateHUD_18: -4138735600262866940
+      StateHUD_2: -9127863871422947353
+      StateHUD_3: -1787396882384550881
+      StateHUD_4: 4036308510435968319
+      StateHUD_5: -5398829748402010155
+      StateHUD_6: -4079965365662865616
+      StateHUD_7: 6847933000384097454
+      StateHUD_8: -5581064780635283154
+      StateHUD_9: 6214084550058336252
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

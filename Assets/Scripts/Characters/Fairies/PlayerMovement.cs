@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public RuntimeAnimatorController bloomController;
     public RuntimeAnimatorController frostController;
 
+    [Header("Efeito de troca (overlay)")]
+    public Animator switchEffectAnimator;
+    public string effectTrigger = "Play";
+
     private Animator anim;
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -48,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isBloom = !isBloom;
             anim.runtimeAnimatorController = isBloom ? bloomController : frostController;
+
+            if (switchEffectAnimator != null)
+                switchEffectAnimator.SetTrigger(effectTrigger);
         }
     }
 
