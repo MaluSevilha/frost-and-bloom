@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - EndScene
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

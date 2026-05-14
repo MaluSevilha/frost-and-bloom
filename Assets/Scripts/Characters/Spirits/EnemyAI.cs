@@ -139,7 +139,7 @@ public class EnemyAI : MonoBehaviour
         {
             // Se o ponto estiver como filho do inimigo,
             // ele precisa ficar parado no mundo.
-            pontoDeRetorno.SetParent(null);
+            // pontoDeRetorno.SetParent(null);
             posicaoDeRetorno = pontoDeRetorno.position;
         }
         else
@@ -392,5 +392,22 @@ public class EnemyAI : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawSphere(pontoDeRetorno.position, 0.12f);
         }
+    }
+
+    public void ResetEnemyState(){
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        currentState = State.Idle;
+        isIdling = true;
+        idleTimer = 0f;
+        idleTarget = 0f;
+
+        direction = 1;
+        FlipVisual();
+        UpdateAnimation();
     }
 }

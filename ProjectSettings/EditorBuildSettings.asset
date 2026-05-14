@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fase/Final.unity
     guid: 93b62e5eff7322d43b3e4b13293542d1
+  - enabled: 1
+    path: Assets/Scenes/HUD/Vitoria.unity
+    guid: 94b77c443d38e304aa5bf661164a87b5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

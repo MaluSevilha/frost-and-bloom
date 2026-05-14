@@ -37,7 +37,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead) return;
 
-        moveInput  = Input.GetAxis("Horizontal");
+        moveInput = 0f;
+        if (Input.GetKey(KeyCode.LeftArrow))
+            moveInput = -1f;
+        else if (Input.GetKey(KeyCode.RightArrow))
+            moveInput = 1f;
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
