@@ -15,13 +15,13 @@ public class ControlledVerticalPlatform : MonoBehaviour
     {
         float direction = 0f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
         {
-            direction = -1f; // W desce
+            direction = -1f; // S desce
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.W))
         {
-            direction = 1f; // S sobe
+            direction = 1f; // W sobe
         }
 
         Vector2 movement = new Vector2(0f, direction * speed * Time.fixedDeltaTime);

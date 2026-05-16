@@ -38,18 +38,13 @@ public class EnemyAI : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-
-    private Vector2 posicaoDeRetorno;
+    private EnemyPlatformFollow platformFollow;
 
     private int direction = 1;
     private float idleTimer = 0f;
     private float idleTarget = 0f;
     private bool isIdling = true;
 
-    private float limiteEsquerdoInimigo;
-    private float limiteDireitoInimigo;
-    private float limiteEsquerdoArea;
-    private float limiteDireitoArea;
     private bool usaAreaDeMovimento = false;
 
     private enum State
@@ -67,6 +62,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        platformFollow = GetComponent<EnemyPlatformFollow>();
 
         if (corpoCollider == null)
             corpoCollider = GetComponent<BoxCollider2D>();
@@ -87,15 +83,12 @@ public class EnemyAI : MonoBehaviour
             case State.Idle:
                 Idle();
                 break;
-
             case State.Chase:
                 Chase();
                 break;
-
             case State.IdleBeforeReturn:
                 IdleBeforeReturn();
                 break;
-
             case State.Return:
                 ReturnToStart();
                 break;
@@ -115,41 +108,31 @@ public class EnemyAI : MonoBehaviour
 
         areaDeMovimento.isTrigger = true;
 
-        // A área precisa ficar parada no mundo.
-        // Se ela estiver como filha do inimigo, ela será solta no Start.
-        areaDeMovimento.transform.SetParent(null);
-
-        Bounds area = areaDeMovimento.bounds;
-        float metadeDoInimigo = corpoCollider.bounds.extents.x;
-
-        // Limites para o corpo do inimigo não sair da área.
-        limiteEsquerdoInimigo = area.min.x + metadeDoInimigo;
-        limiteDireitoInimigo = area.max.x - metadeDoInimigo;
-
-        // Limites reais da área, usados para saber se o player está dentro dela.
-        limiteEsquerdoArea = area.min.x;
-        limiteDireitoArea = area.max.x;
+        // NÃO soltamos mais a área do inimigo — ela fica filha
+        // e acompanha a plataforma junto com ele.
+        // areaDeMovimento.transform.SetParent(null); <- REMOVIDO
 
         usaAreaDeMovimento = true;
     }
 
+    // Calcula os limites da área dinamicamente a cada consulta,
+    // refletindo a posição atual da área (que se move com a plataforma).
+    void GetAreaLimites(out float esqInimigo, out float dirInimigo,
+                        out float esqArea,    out float dirArea)
+    {
+        Bounds area = areaDeMovimento.bounds;
+        float metadeDoInimigo = corpoCollider.bounds.extents.x;
+
+        esqInimigo = area.min.x + metadeDoInimigo;
+        dirInimigo = area.max.x - metadeDoInimigo;
+        esqArea    = area.min.x;
+        dirArea    = area.max.x;
+    }
+
     void ConfigurarPontoDeRetorno()
     {
-        if (pontoDeRetorno != null)
-        {
-            // Se o ponto estiver como filho do inimigo,
-            // ele precisa ficar parado no mundo.
-            // pontoDeRetorno.SetParent(null);
-            posicaoDeRetorno = pontoDeRetorno.position;
-        }
-        else
-        {
-            posicaoDeRetorno = rb.position;
-
-            Debug.LogWarning(
-                "PontoDeRetorno não foi definido. Usando a posição inicial do inimigo."
-            );
-        }
+        if (pontoDeRetorno == null)
+            Debug.LogWarning("PontoDeRetorno não foi definido no EnemyAI.");
     }
 
     void AplicarControllerEscolhido()
@@ -180,22 +163,15 @@ public class EnemyAI : MonoBehaviour
                 if (PodeComecarPerseguicao())
                     currentState = State.Chase;
                 break;
-
             case State.Chase:
                 if (DevePararDePerseguir())
                     StartIdleBeforeReturn();
                 break;
-
             case State.IdleBeforeReturn:
-                // Se o player voltar para a área durante a pausa,
-                // o inimigo volta a perseguir.
                 if (PlayerDentroDaArea() && PlayerNaAlturaPermitida())
                     currentState = State.Chase;
                 break;
-
             case State.Return:
-                // Se o player entrar de novo na área enquanto o inimigo retorna,
-                // ele volta a perseguir.
                 if (PlayerDentroDaArea() && PlayerNaAlturaPermitida())
                     currentState = State.Chase;
                 break;
@@ -204,95 +180,80 @@ public class EnemyAI : MonoBehaviour
 
     bool PodeComecarPerseguicao()
     {
-        if (player == null)
-            return false;
-
-        if (!PlayerDentroDaArea())
-            return false;
-
-        if (!PlayerNaAlturaPermitida())
-            return false;
+        if (player == null) return false;
+        if (!PlayerDentroDaArea()) return false;
+        if (!PlayerNaAlturaPermitida()) return false;
 
         float distance = Vector2.Distance(rb.position, player.position);
-
-        if (distance > detectionDistance)
-            return false;
+        if (distance > detectionDistance) return false;
 
         return true;
     }
 
     bool DevePararDePerseguir()
     {
-        if (player == null)
-            return true;
-
-        // Depois que começou a perseguir, NÃO para por distância.
-        // Só para se o player sair da área do inimigo ou sair da altura permitida.
-
-        if (!PlayerDentroDaArea())
-            return true;
-
-        if (!PlayerNaAlturaPermitida())
-            return true;
-
+        if (player == null) return true;
+        if (!PlayerDentroDaArea()) return true;
+        if (!PlayerNaAlturaPermitida()) return true;
         return false;
     }
 
     bool PlayerDentroDaArea()
     {
-        if (player == null)
-            return false;
+        if (player == null) return false;
+        if (!usaAreaDeMovimento) return true;
 
-        if (!usaAreaDeMovimento)
-            return true;
+        GetAreaLimites(out _, out _, out float esqArea, out float dirArea);
 
-        return player.position.x >= limiteEsquerdoArea &&
-               player.position.x <= limiteDireitoArea;
+        return player.position.x >= esqArea && player.position.x <= dirArea;
     }
 
     bool PlayerNaAlturaPermitida()
     {
-        if (player == null)
-            return false;
+        if (player == null) return false;
 
         float heightDiff = Mathf.Abs(rb.position.y - player.position.y);
-
         return heightDiff <= maxHeightDifference;
+    }
+
+    Vector2 GetPlatformDelta()
+    {
+        if (platformFollow == null) return Vector2.zero;
+        return platformFollow.PlatformDelta;
     }
 
     void Idle()
     {
         isIdling = true;
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        Vector2 delta = GetPlatformDelta();
+        rb.linearVelocity = new Vector2(delta.x / Time.fixedDeltaTime, rb.linearVelocity.y);
     }
 
     void Chase()
     {
         isIdling = false;
-
         direction = player.position.x > rb.position.x ? 1 : -1;
         FlipVisual();
-
         MoverDentroDaArea(direction, runSpeed);
     }
 
     void StartIdleBeforeReturn()
     {
         currentState = State.IdleBeforeReturn;
-
         isIdling = true;
         idleTimer = 0f;
         idleTarget = Random.Range(idleDurationMin, idleDurationMax);
 
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        Vector2 delta = GetPlatformDelta();
+        rb.linearVelocity = new Vector2(delta.x / Time.fixedDeltaTime, rb.linearVelocity.y);
     }
 
     void IdleBeforeReturn()
     {
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        Vector2 delta = GetPlatformDelta();
+        rb.linearVelocity = new Vector2(delta.x / Time.fixedDeltaTime, rb.linearVelocity.y);
 
         idleTimer += Time.fixedDeltaTime;
-
         if (idleTimer >= idleTarget)
         {
             currentState = State.Return;
@@ -304,16 +265,21 @@ public class EnemyAI : MonoBehaviour
     {
         isIdling = false;
 
-        float diff = posicaoDeRetorno.x - rb.position.x;
+        if (pontoDeRetorno == null)
+        {
+            currentState = State.Idle;
+            return;
+        }
+
+        Vector2 alvo = pontoDeRetorno.position;
+        float diff = alvo.x - rb.position.x;
 
         if (Mathf.Abs(diff) <= returnThreshold)
         {
-            rb.position = new Vector2(posicaoDeRetorno.x, rb.position.y);
+            rb.position = new Vector2(alvo.x, rb.position.y);
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-
             direction = 1;
             FlipVisual();
-
             currentState = State.Idle;
             return;
         }
@@ -321,31 +287,37 @@ public class EnemyAI : MonoBehaviour
         direction = diff > 0 ? 1 : -1;
         FlipVisual();
 
-        rb.linearVelocity = new Vector2(direction * walkSpeed, rb.linearVelocity.y);
+        Vector2 delta = GetPlatformDelta();
+        float velX = direction * walkSpeed + delta.x / Time.fixedDeltaTime;
+        rb.linearVelocity = new Vector2(velX, rb.linearVelocity.y);
     }
 
     void MoverDentroDaArea(int direcao, float velocidade)
     {
+        GetAreaLimites(out float esqInimigo, out float dirInimigo, out _, out _);
+
         float proximoX = rb.position.x + direcao * velocidade * Time.fixedDeltaTime;
 
         if (usaAreaDeMovimento)
         {
-            if (proximoX < limiteEsquerdoInimigo)
+            if (proximoX < esqInimigo)
             {
-                rb.position = new Vector2(limiteEsquerdoInimigo, rb.position.y);
+                rb.position = new Vector2(esqInimigo, rb.position.y);
                 rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
                 return;
             }
 
-            if (proximoX > limiteDireitoInimigo)
+            if (proximoX > dirInimigo)
             {
-                rb.position = new Vector2(limiteDireitoInimigo, rb.position.y);
+                rb.position = new Vector2(dirInimigo, rb.position.y);
                 rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
                 return;
             }
         }
 
-        rb.linearVelocity = new Vector2(direcao * velocidade, rb.linearVelocity.y);
+        Vector2 delta = GetPlatformDelta();
+        float velX = direcao * velocidade + delta.x / Time.fixedDeltaTime;
+        rb.linearVelocity = new Vector2(velX, rb.linearVelocity.y);
     }
 
     void FlipVisual()
@@ -356,14 +328,10 @@ public class EnemyAI : MonoBehaviour
 
     void UpdateAnimation()
     {
-        if (anim == null)
-            return;
-
-        if (anim.runtimeAnimatorController == null)
-            return;
+        if (anim == null) return;
+        if (anim.runtimeAnimatorController == null) return;
 
         float speed = Mathf.Abs(rb.linearVelocity.x);
-
         anim.SetFloat("Speed", speed);
         anim.SetBool("IsIdle", isIdling);
     }
@@ -373,7 +341,6 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerMovement pm = collision.gameObject.GetComponent<PlayerMovement>();
-
             if (pm != null)
                 pm.Die();
         }
@@ -394,7 +361,8 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void ResetEnemyState(){
+    public void ResetEnemyState()
+    {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
 
@@ -409,5 +377,10 @@ public class EnemyAI : MonoBehaviour
         direction = 1;
         FlipVisual();
         UpdateAnimation();
+    }
+
+    public void RecalcularPontoDeRetorno(Transform novoPonto)
+    {
+        pontoDeRetorno = novoPonto;
     }
 }

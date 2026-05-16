@@ -12,7 +12,11 @@ public class WorldStateManager : MonoBehaviour
 
     public WorldState CurrentState { get; private set; } = WorldState.Bloom;
 
+    // Primeiro evento: ativa/desativa objetos (WorldGroup assina aqui)
     public event System.Action<WorldState> OnStateChanged;
+
+    // Segundo evento: dispara APÓS os SetActive (EnemyWorldRespawn assina aqui)
+    public event System.Action<WorldState> OnStateChangedLate;
 
     private void Awake()
     {
@@ -33,6 +37,10 @@ public class WorldStateManager : MonoBehaviour
             ? WorldState.Bloom
             : WorldState.Frost;
 
+        // 1º: ativa/desativa GameObjects
         OnStateChanged?.Invoke(CurrentState);
+
+        // 2º: agora os objetos já estão ativos, respawn pode rodar
+        OnStateChangedLate?.Invoke(CurrentState);
     }
 }

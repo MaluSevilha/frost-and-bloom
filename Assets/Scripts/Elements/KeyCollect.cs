@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class KeyCollect : MonoBehaviour
 {
-    public Animator doorAnimator;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            doorAnimator.SetTrigger("Open");
+            PlayerInventory inventory = other.GetComponent<PlayerInventory>();
+
+            if (inventory != null)
+            {
+                inventory.hasKey = true;
+            }
 
             gameObject.SetActive(false);
         }

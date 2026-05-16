@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6254724897323746043}
   - component: {fileID: 4290903465386136999}
   - component: {fileID: 3771607020814093916}
+  - component: {fileID: 8154635808397325833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -208,6 +209,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.10248822, y: -0.063069224}
   m_Size: {x: 1.0150236, y: 1.2238617}
   m_Direction: 0
+--- !u!114 &8154635808397325833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424387975439695950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303fef4d80a50844b846ffe9c4107b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  hasKey: 0
 --- !u!1 &728892207882181009
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +324,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

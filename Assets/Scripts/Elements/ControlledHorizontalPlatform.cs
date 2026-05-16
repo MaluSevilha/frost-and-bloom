@@ -6,12 +6,14 @@ public class ControlledHorizontalPlatform : MonoBehaviour
     public LayerMask collisionLayer;
 
     private Rigidbody2D rb;
-    private Collider2D col;
+    private CompositeCollider2D compositeCol;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
+        // Usa o CompositeCollider2D explicitamente,
+        // evitando pegar o TilemapCollider2D por engano.
+        compositeCol = GetComponent<CompositeCollider2D>();
     }
 
     void FixedUpdate()
@@ -23,6 +25,8 @@ public class ControlledHorizontalPlatform : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
             direction = 1f;
 
+        if (direction == 0f) return;
+
         Vector2 movement = new Vector2(direction * speed * Time.fixedDeltaTime, 0f);
 
         if (!VaiColidir(movement))
@@ -33,12 +37,18 @@ public class ControlledHorizontalPlatform : MonoBehaviour
 
     bool VaiColidir(Vector2 movimento)
     {
+        if (compositeCol == null) return false;
+
+        // Usa os bounds do CompositeCollider2D com leve redução
+        // para evitar self-detection nas bordas.
+        Vector2 sizeReduzido = compositeCol.bounds.size * 0.95f;
+
         RaycastHit2D hit = Physics2D.BoxCast(
-            col.bounds.center,
-            col.bounds.size,
+            compositeCol.bounds.center,
+            sizeReduzido,
             0f,
             movimento.normalized,
-            movimento.magnitude,
+            movimento.magnitude + 0.05f,
             collisionLayer
         );
 
