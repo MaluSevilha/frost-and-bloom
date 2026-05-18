@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pausePanel: {fileID: 465946325930594229}
   howToPlayPanel: {fileID: 9188601880520997246}
+  continueButton: {fileID: 0}
 --- !u!1 &3221106185135321125
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,15 +227,15 @@ RectTransform:
   m_GameObject: {fileID: 3221106185135321125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6773954, y: 0.6773954, z: 0.6773954}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9134892311148080244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.148107, y: -156.2975}
-  m_SizeDelta: {x: 316.7853, y: 71.4161}
+  m_AnchoredPosition: {x: -13.9, y: -202.46448}
+  m_SizeDelta: {x: 328.5012, y: 76.2977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &358369490834471749
 CanvasRenderer:
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4396575355296654178, guid: f96f52ee7c0753840884f8019fe7d5b4, type: 3}
+  m_Sprite: {fileID: 4864631687752983888, guid: 0b669145aeb59954b83c88931b78d725, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -470,7 +471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -562733796427195768, guid: 21fbe7c8280c2204494278c030a08dee, type: 3}
+  m_Sprite: {fileID: -3835579247118368046, guid: aa87543dff9f9c743b88ff532b0ad5a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

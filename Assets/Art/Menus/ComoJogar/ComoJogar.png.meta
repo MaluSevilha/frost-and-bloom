@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 21fbe7c8280c2204494278c030a08dee
+guid: aa87543dff9f9c743b88ff532b0ad5a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -562733796427195768
-    second: ComoJogar_0
+      213: -3835579247118368046
+    second: upscalemedia-transformed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ComoJogar_0
+      name: upscalemedia-transformed_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 93
-        width: 1387
-        height: 959
+        x: 0
+        y: 0
+        width: 1224
+        height: 816
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88a99d8f794c038f0800000000000000
-      internalID: -562733796427195768
+      spriteID: 2d246ab1ff845cac0800000000000000
+      internalID: -3835579247118368046
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ComoJogar_0: -562733796427195768
+      upscalemedia-transformed_0: -3835579247118368046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

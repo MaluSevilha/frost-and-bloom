@@ -4,7 +4,11 @@ public class ControlledVerticalPlatform : MonoBehaviour
 {
     public float speed = 3f;
 
+    [Header("Limites")]
+    public string upperLimitTag = "UpperPlatformLimit";
+
     private Rigidbody2D rb;
+    private bool blockedUp = false;
 
     void Awake()
     {
@@ -15,13 +19,16 @@ public class ControlledVerticalPlatform : MonoBehaviour
     {
         float direction = 0f;
 
-        if (Input.GetKey(KeyCode.S))
+        // SUBIR
+        if (Input.GetKey(KeyCode.W) && !blockedUp)
         {
-            direction = -1f; // S desce
+            direction = 1f;
         }
-        else if (Input.GetKey(KeyCode.W))
+
+        // DESCER
+        else if (Input.GetKey(KeyCode.S))
         {
-            direction = 1f; // W sobe
+            direction = -1f;
         }
 
         Vector2 movement = new Vector2(0f, direction * speed * Time.fixedDeltaTime);
@@ -33,6 +40,22 @@ public class ControlledVerticalPlatform : MonoBehaviour
         else
         {
             transform.position += (Vector3)movement;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(upperLimitTag))
+        {
+            blockedUp = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(upperLimitTag))
+        {
+            blockedUp = false;
         }
     }
 }

@@ -918,7 +918,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5548957745818239977, guid: 7f4bcfcc052cb1041811858a31996bad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.138209
+      value: 9.03
       objectReference: {fileID: 0}
     - target: {fileID: 5548957745818239977, guid: 7f4bcfcc052cb1041811858a31996bad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e9d8ac0b3b28d4aa16a5f020d7536b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldStateManager
+  respectTutorialLock: 1
 --- !u!4 &673523008
 Transform:
   m_ObjectHideFlags: 0
@@ -7720,6 +7721,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719281055875692858, guid: 01189c43dde9b974fa238507dd175846, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 719281055875692858, guid: 01189c43dde9b974fa238507dd175846, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -193
+      objectReference: {fileID: 0}
     - target: {fileID: 2698224799062932155, guid: 01189c43dde9b974fa238507dd175846, type: 3}
       propertyPath: m_Name
       value: CanvasPause

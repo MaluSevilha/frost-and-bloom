@@ -18,13 +18,30 @@ public class WorldStateManager : MonoBehaviour
     // Segundo evento: dispara APÓS os SetActive (EnemyWorldRespawn assina aqui)
     public event System.Action<WorldState> OnStateChangedLate;
 
+    [Header("Tutorial Lock (opcional)")]
+    [SerializeField] private bool respectTutorialLock = true;
+
+    private PlayerControlFlags controlFlags;
+
     private void Awake()
     {
         Instance = this;
     }
 
+    private void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            controlFlags = player.GetComponent<PlayerControlFlags>();
+        }
+    }
+
     private void Update()
     {
+        if (respectTutorialLock && controlFlags != null && !controlFlags.canSwitchState)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ToggleState();
@@ -37,10 +54,7 @@ public class WorldStateManager : MonoBehaviour
             ? WorldState.Bloom
             : WorldState.Frost;
 
-        // 1º: ativa/desativa GameObjects
         OnStateChanged?.Invoke(CurrentState);
-
-        // 2º: agora os objetos já estão ativos, respawn pode rodar
         OnStateChangedLate?.Invoke(CurrentState);
     }
 }

@@ -1,12 +1,25 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private string firstLevelSceneName = "Tutorial";
+    [Header("Painéis")]
+    public GameObject mainMenuPanel;
+    public GameObject howPlayPanel;
+
+    public void OpenHowPlay()
+    {
+        mainMenuPanel.SetActive(false);
+        howPlayPanel.SetActive(true);
+    }
+
+    public void CloseHowPlay()
+    {
+        howPlayPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(firstLevelSceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
     }
 }
