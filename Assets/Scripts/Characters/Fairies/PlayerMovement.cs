@@ -21,17 +21,34 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
+
+    // sons
+    private AudioSource[] sounds;
+    private AudioSource jumpSound;
+    private AudioSource switchSound;
+
     private bool isGrounded;
     private float moveInput;
     private bool isBloom = true;
     private bool isDead = false;
+
     private PlayerControlFlags controlFlags;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        // pega os dois Audio Sources do player
+        sounds = GetComponents<AudioSource>();
+
+        // 0 = jump
+        // 1 = transicao
+        jumpSound = sounds[0];
+        switchSound = sounds[1];
+
         anim.runtimeAnimatorController = bloomController;
+
         controlFlags = GetComponent<PlayerControlFlags>();
     }
 
@@ -39,7 +56,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead) return;
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundRadius,
+            groundLayer
+        );
 
         bool canMove = controlFlags == null || controlFlags.canMove;
         bool canJump = controlFlags == null || controlFlags.canJump;
@@ -51,50 +72,73 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
                 moveInput = -1f;
+
             else if (Input.GetKey(KeyCode.RightArrow))
                 moveInput = 1f;
 
             anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
-            if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
-            else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
+            if (moveInput > 0)
+                transform.localScale = new Vector3(1, 1, 1);
+
+            else if (moveInput < 0)
+                transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
             anim.SetFloat("Speed", 0f);
         }
 
+        // pulo
         if (canJump && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpForce
+            );
+
+            jumpSound.Play();
         }
 
+        // troca de mundo
         if (canSwitch && Input.GetKeyDown(KeyCode.Q))
         {
             isBloom = !isBloom;
-            anim.runtimeAnimatorController = isBloom ? bloomController : frostController;
+
+            anim.runtimeAnimatorController =
+                isBloom ? bloomController : frostController;
 
             if (switchEffectAnimator != null)
                 switchEffectAnimator.SetTrigger(effectTrigger);
+
+            switchSound.Play();
         }
     }
 
     void FixedUpdate()
     {
         if (isDead) return;
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+
+        rb.linearVelocity =
+            new Vector2(moveInput * speed, rb.linearVelocity.y);
     }
 
     public void Die()
     {
         if (isDead) return;
+
         isDead = true;
 
         anim.SetTrigger("Die");
+
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
 
-        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetString(
+            "LastLevel",
+            SceneManager.GetActiveScene().name
+        );
+
         PlayerPrefs.Save();
 
         StartCoroutine(LoadDeathMenu());
@@ -103,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator LoadDeathMenu()
     {
         yield return new WaitForSeconds(1f);
+
         SceneManager.LoadScene("Menu_Derrota");
     }
 }
