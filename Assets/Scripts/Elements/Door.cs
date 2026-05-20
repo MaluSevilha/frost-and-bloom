@@ -9,6 +9,9 @@ public class Door : MonoBehaviour
     public CapsuleCollider2D blockingCollider;   // collider sólido
     public CapsuleCollider2D interactionCollider; // trigger
 
+    [Header("Som")]
+    [SerializeField] private AudioSource openDoorSound;
+
     private bool isOpen = false;
     private bool playerInRange = false;
     private PlayerInventory playerInventory;
@@ -44,6 +47,9 @@ public class Door : MonoBehaviour
 
     private void OpenDoor()
     {
+        if (openDoorSound != null)
+            openDoorSound.Play();
+            
         isOpen = true;
         spriteRenderer.sprite = openSprite;
 

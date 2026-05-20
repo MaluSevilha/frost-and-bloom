@@ -26,7 +26,7 @@ public class PauseManager : MonoBehaviour
             {
                 howToPlayPanel.SetActive(false);
                 pausePanel.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(continueButton);
+                EventSystem.current.SetSelectedGameObject(null);
                 return;
             }
 
@@ -43,10 +43,6 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = isPaused ? 0f : 1f;
 
         if (isPaused)
-        {
-            EventSystem.current.SetSelectedGameObject(continueButton);
-        }
-        else
         {
             EventSystem.current.SetSelectedGameObject(null);
         }
@@ -73,7 +69,7 @@ public class PauseManager : MonoBehaviour
     {
         howToPlayPanel.SetActive(false);
         pausePanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(continueButton);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void ReturnToMenu()

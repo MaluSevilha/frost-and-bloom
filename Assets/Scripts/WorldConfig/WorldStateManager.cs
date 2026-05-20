@@ -14,12 +14,10 @@ public class WorldStateManager : MonoBehaviour
 
     // Primeiro evento: ativa/desativa objetos (WorldGroup assina aqui)
     public event System.Action<WorldState> OnStateChanged;
+    public event System.Action OnWorldSwitched;
 
     // Segundo evento: dispara APÓS os SetActive (EnemyWorldRespawn assina aqui)
     public event System.Action<WorldState> OnStateChangedLate;
-
-    [Header("Tutorial Lock (opcional)")]
-    [SerializeField] private bool respectTutorialLock = true;
 
     private PlayerControlFlags controlFlags;
 
@@ -37,15 +35,9 @@ public class WorldStateManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        if (respectTutorialLock && controlFlags != null && !controlFlags.canSwitchState)
-            return;
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ToggleState();
-        }
+        OnWorldSwitched = null;
     }
 
     public void ToggleState()
@@ -56,5 +48,7 @@ public class WorldStateManager : MonoBehaviour
 
         OnStateChanged?.Invoke(CurrentState);
         OnStateChangedLate?.Invoke(CurrentState);
+
+        OnWorldSwitched?.Invoke();
     }
 }

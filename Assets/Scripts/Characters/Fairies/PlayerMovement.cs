@@ -4,6 +4,8 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static System.Action OnPlayerJump;
+
     [Header("Movimento")]
     public float speed = 5f;
     public float jumpForce = 12f;
@@ -23,9 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     // sons
-    private AudioSource[] sounds;
-    private AudioSource jumpSound;
-    private AudioSource switchSound;
+    [Header("Sons")]
+    [SerializeField] private AudioSource jumpSound;
+    [SerializeField] private AudioSource switchSound;
+    [SerializeField] private AudioSource deathSound;
 
     private bool isGrounded;
     private float moveInput;
@@ -38,16 +41,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-        // pega os dois Audio Sources do player
-        sounds = GetComponents<AudioSource>();
-
-        // 0 = jump
-        // 1 = transicao
-        jumpSound = sounds[0];
-        switchSound = sounds[1];
-
-        anim.runtimeAnimatorController = bloomController;
+        
+        anim.runtimeAnimatorController =
+            WorldStateManager.Instance.CurrentState == WorldState.Bloom
+            ? bloomController
+            : frostController;
 
         controlFlags = GetComponent<PlayerControlFlags>();
     }
@@ -97,9 +95,13 @@ public class PlayerMovement : MonoBehaviour
                 jumpForce
             );
 
-            jumpSound.Play();
+            if (jumpSound != null)
+                jumpSound.Play();
+
+            OnPlayerJump?.Invoke();
         }
 
+        // troca de mundo
         // troca de mundo
         if (canSwitch && Input.GetKeyDown(KeyCode.Q))
         {
@@ -111,7 +113,11 @@ public class PlayerMovement : MonoBehaviour
             if (switchEffectAnimator != null)
                 switchEffectAnimator.SetTrigger(effectTrigger);
 
-            switchSound.Play();
+            if (switchSound != null)
+                switchSound.Play();
+
+            if (WorldStateManager.Instance != null)
+                WorldStateManager.Instance.ToggleState();
         }
     }
 
@@ -123,6 +129,32 @@ public class PlayerMovement : MonoBehaviour
             new Vector2(moveInput * speed, rb.linearVelocity.y);
     }
 
+    private void OnEnable()
+    {   
+        if (WorldStateManager.Instance != null)
+            WorldStateManager.Instance.OnStateChanged += UpdateVisual;
+    }
+
+    private void OnDisable()
+    {
+        if (WorldStateManager.Instance != null)
+            WorldStateManager.Instance.OnStateChanged -= UpdateVisual;
+    }
+
+    private void UpdateVisual(WorldState state)
+    {
+        anim.runtimeAnimatorController =
+            state == WorldState.Bloom
+            ? bloomController
+            : frostController;
+
+        if (switchEffectAnimator != null)
+            switchEffectAnimator.SetTrigger(effectTrigger);
+
+        if (switchSound != null)
+            switchSound.Play();
+    }
+
     public void Die()
     {
         if (isDead) return;
@@ -130,6 +162,9 @@ public class PlayerMovement : MonoBehaviour
         isDead = true;
 
         anim.SetTrigger("Die");
+
+        if (deathSound != null)
+            deathSound.Play();
 
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
@@ -142,6 +177,11 @@ public class PlayerMovement : MonoBehaviour
         PlayerPrefs.Save();
 
         StartCoroutine(LoadDeathMenu());
+    }
+
+    private void OnDestroy()
+    {
+        OnPlayerJump = null;
     }
 
     private IEnumerator LoadDeathMenu()

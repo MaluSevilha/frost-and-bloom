@@ -56,13 +56,11 @@ public class TutorialManager : MonoBehaviour
         }
         else if (step.stepType == TutorialStepType.WaitMove)
         {
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) ||
+                Input.GetKeyDown(KeyCode.RightArrow))
+            {
                 NextStep();
-        }
-        else if (step.stepType == TutorialStepType.WaitJump)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                NextStep();
+            }
         }
     }
 
@@ -132,17 +130,32 @@ public class TutorialManager : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerMovement.OnPlayerJump += HandlePlayerJump;
         if (WorldStateManager.Instance != null)
-            WorldStateManager.Instance.OnStateChanged += HandleWorldStateChanged;
+        {
+            WorldStateManager.Instance.OnWorldSwitched += HandleWorldSwitch;
+        }
     }
 
     private void OnDisable()
     {
+        PlayerMovement.OnPlayerJump -= HandlePlayerJump;
         if (WorldStateManager.Instance != null)
-            WorldStateManager.Instance.OnStateChanged -= HandleWorldStateChanged;
+        {
+            WorldStateManager.Instance.OnWorldSwitched -= HandleWorldSwitch;
+        }
     }
 
-    private void HandleWorldStateChanged(WorldState state)
+    private void HandlePlayerJump()
+    {
+        if (currentStepIndex < steps.Length &&
+            steps[currentStepIndex].stepType == TutorialStepType.WaitJump)
+        {
+            NextStep();
+        }
+    }
+
+    private void HandleWorldSwitch()
     {
         if (currentStepIndex < steps.Length &&
             steps[currentStepIndex].stepType == TutorialStepType.WaitSwitch)

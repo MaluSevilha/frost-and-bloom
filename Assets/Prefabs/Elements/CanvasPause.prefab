@@ -161,7 +161,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 960, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pausePanel: {fileID: 465946325930594229}
   howToPlayPanel: {fileID: 9188601880520997246}
-  continueButton: {fileID: 0}
+  continueButton: {fileID: 8855067501860770772}
 --- !u!1 &3221106185135321125
 GameObject:
   m_ObjectHideFlags: 0
