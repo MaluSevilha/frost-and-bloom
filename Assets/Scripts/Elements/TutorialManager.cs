@@ -6,7 +6,7 @@ public class TutorialManager : MonoBehaviour
 
     public enum TutorialStepType
     {
-        PressEnter,
+        PressContinue,
         WaitMove,
         WaitJump,
         WaitSwitch
@@ -33,12 +33,20 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
     private void Start()
     {
-        dialogueUI.gameObject.SetActive(true);
+        if (dialogueUI != null)
+            dialogueUI.gameObject.SetActive(true);
+
         ShowCurrentStep();
     }
 
@@ -47,23 +55,41 @@ public class TutorialManager : MonoBehaviour
         if (currentStepIndex >= steps.Length)
             return;
 
-        var step = steps[currentStepIndex];
+        TutorialStep step = steps[currentStepIndex];
 
-        if (step.stepType == TutorialStepType.PressEnter)
+        if (step.stepType == TutorialStepType.WaitMove)
         {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                NextStep();
-        }
-        else if (step.stepType == TutorialStepType.WaitMove)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) ||
-                Input.GetKeyDown(KeyCode.RightArrow))
+            float moveX = 0f;
+
+            if (MobileInputState.Instance != null)
             {
-                NextStep();
+                moveX = MobileInputState.Instance.PlayerMoveX;
             }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    moveX = -1f;
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                    moveX = 1f;
+            }
+
+            if (Mathf.Abs(moveX) > 0.01f)
+                NextStep();
         }
     }
 
+    public void ContinuePressed()
+    {
+        if (currentStepIndex >= steps.Length)
+            return;
+
+        TutorialStep step = steps[currentStepIndex];
+
+        if (step.stepType == TutorialStepType.PressContinue)
+        {
+            NextStep();
+        }
+    }
     private void ShowCurrentStep()
     {
         if (currentStepIndex >= steps.Length)
@@ -75,7 +101,11 @@ public class TutorialManager : MonoBehaviour
         TutorialStep step = steps[currentStepIndex];
 
         SetPermissions(step.stepType);
-        dialogueUI.Show("Lumini", step.text, step.stepType == TutorialStepType.PressEnter);
+
+        bool showContinueHint = step.stepType == TutorialStepType.PressContinue;
+
+        if (dialogueUI != null)
+            dialogueUI.Show("Lumini", step.text, showContinueHint);
     }
 
     private void SetPermissions(TutorialStepType type)
@@ -89,7 +119,7 @@ public class TutorialManager : MonoBehaviour
 
         switch (type)
         {
-            case TutorialStepType.PressEnter:
+            case TutorialStepType.PressContinue:
                 break;
 
             case TutorialStepType.WaitMove:
@@ -117,7 +147,8 @@ public class TutorialManager : MonoBehaviour
 
     private void EndTutorial()
     {
-        dialogueUI.Hide();
+        if (dialogueUI != null)
+            dialogueUI.Hide();
 
         if (controlFlags != null)
         {
@@ -131,19 +162,17 @@ public class TutorialManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerMovement.OnPlayerJump += HandlePlayerJump;
+
         if (WorldStateManager.Instance != null)
-        {
             WorldStateManager.Instance.OnWorldSwitched += HandleWorldSwitch;
-        }
     }
 
     private void OnDisable()
     {
         PlayerMovement.OnPlayerJump -= HandlePlayerJump;
+
         if (WorldStateManager.Instance != null)
-        {
             WorldStateManager.Instance.OnWorldSwitched -= HandleWorldSwitch;
-        }
     }
 
     private void HandlePlayerJump()

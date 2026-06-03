@@ -23,6 +23,12 @@ public class WorldStateManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
@@ -37,6 +43,11 @@ public class WorldStateManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (Instance == this)
+            Instance = null;
+
+        OnStateChanged = null;
+        OnStateChangedLate = null;
         OnWorldSwitched = null;
     }
 

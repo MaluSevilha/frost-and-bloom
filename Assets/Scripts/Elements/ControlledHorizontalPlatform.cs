@@ -20,10 +20,17 @@ public class ControlledHorizontalPlatform : MonoBehaviour
     {
         float direction = 0f;
 
-        if (Input.GetKey(KeyCode.A))
-            direction = -1f;
-        else if (Input.GetKey(KeyCode.D))
-            direction = 1f;
+        if (MobileInputState.Instance != null)
+        {
+            direction = MobileInputState.Instance.PlatformX;
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.A))
+                direction = -1f;
+            else if (Input.GetKey(KeyCode.D))
+                direction = 1f;
+        }
 
         if (direction == 0f) return;
 

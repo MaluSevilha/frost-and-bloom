@@ -32,7 +32,11 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange && !isOpen && Input.GetKeyDown(KeyCode.E))
+        bool interactPressed =
+            Input.GetKeyDown(KeyCode.E) ||
+            (MobileInputState.Instance != null && MobileInputState.Instance.ConsumeInteract());
+
+        if (playerInRange && !isOpen && interactPressed)
         {
             if (playerInventory != null && playerInventory.hasKey)
             {

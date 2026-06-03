@@ -21,10 +21,12 @@ public class PlayerMovement : MonoBehaviour
     public Animator switchEffectAnimator;
     public string effectTrigger = "Play";
 
+    [Header("Input Mobile")]
+    [SerializeField] private MobileInputState mobileInput;
+
     private Animator anim;
     private Rigidbody2D rb;
 
-    // sons
     [Header("Sons")]
     [SerializeField] private AudioSource jumpSound;
     [SerializeField] private AudioSource switchSound;
@@ -32,22 +34,27 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
     private float moveInput;
-    private bool isBloom = true;
     private bool isDead = false;
 
+    private WorldStateManager worldStateManager;
     private PlayerControlFlags controlFlags;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
-        anim.runtimeAnimatorController =
-            WorldStateManager.Instance.CurrentState == WorldState.Bloom
-            ? bloomController
-            : frostController;
-
         controlFlags = GetComponent<PlayerControlFlags>();
+
+        if (mobileInput == null)
+            mobileInput = FindFirstObjectByType<MobileInputState>();
+
+        worldStateManager = FindFirstObjectByType<WorldStateManager>();
+
+        if (worldStateManager != null)
+        {
+            worldStateManager.OnStateChanged += UpdateVisual;
+            UpdateVisual(worldStateManager.CurrentState);
+        }
     }
 
     void Update()
@@ -68,17 +75,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (canMove)
         {
+            float keyboardInput = 0f;
             if (Input.GetKey(KeyCode.LeftArrow))
-                moveInput = -1f;
+                keyboardInput -= 1f;
+            if (Input.GetKey(KeyCode.RightArrow))
+                keyboardInput += 1f;
 
-            else if (Input.GetKey(KeyCode.RightArrow))
-                moveInput = 1f;
+            float touchInput = mobileInput != null ? mobileInput.PlayerMoveX : 0f;
+            moveInput = Mathf.Abs(touchInput) > 0.01f ? touchInput : keyboardInput;
 
             anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
             if (moveInput > 0)
                 transform.localScale = new Vector3(1, 1, 1);
-
             else if (moveInput < 0)
                 transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -87,13 +96,13 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", 0f);
         }
 
-        // pulo
-        if (canJump && Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        bool jumpPressed =
+            Input.GetKeyDown(KeyCode.Space) ||
+            (mobileInput != null && mobileInput.ConsumeJump());
+
+        if (canJump && jumpPressed && isGrounded)
         {
-            rb.linearVelocity = new Vector2(
-                rb.linearVelocity.x,
-                jumpForce
-            );
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
 
             if (jumpSound != null)
                 jumpSound.Play();
@@ -101,21 +110,12 @@ public class PlayerMovement : MonoBehaviour
             OnPlayerJump?.Invoke();
         }
 
-        // troca de mundo
-        // troca de mundo
-        if (canSwitch && Input.GetKeyDown(KeyCode.Q))
+        bool switchPressed =
+            Input.GetKeyDown(KeyCode.Q) ||
+            (mobileInput != null && mobileInput.ConsumeSwitch());
+
+        if (canSwitch && switchPressed)
         {
-            isBloom = !isBloom;
-
-            anim.runtimeAnimatorController =
-                isBloom ? bloomController : frostController;
-
-            if (switchEffectAnimator != null)
-                switchEffectAnimator.SetTrigger(effectTrigger);
-
-            if (switchSound != null)
-                switchSound.Play();
-
             if (WorldStateManager.Instance != null)
                 WorldStateManager.Instance.ToggleState();
         }
@@ -125,34 +125,30 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead) return;
 
-        rb.linearVelocity =
-            new Vector2(moveInput * speed, rb.linearVelocity.y);
-    }
-
-    private void OnEnable()
-    {   
-        if (WorldStateManager.Instance != null)
-            WorldStateManager.Instance.OnStateChanged += UpdateVisual;
+        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
     }
 
     private void OnDisable()
     {
-        if (WorldStateManager.Instance != null)
-            WorldStateManager.Instance.OnStateChanged -= UpdateVisual;
+        if (worldStateManager != null)
+            worldStateManager.OnStateChanged -= UpdateVisual;
     }
 
     private void UpdateVisual(WorldState state)
     {
-        anim.runtimeAnimatorController =
-            state == WorldState.Bloom
-            ? bloomController
-            : frostController;
+        ApplyWorldVisual(state);
 
         if (switchEffectAnimator != null)
             switchEffectAnimator.SetTrigger(effectTrigger);
 
         if (switchSound != null)
             switchSound.Play();
+    }
+
+    private void ApplyWorldVisual(WorldState state)
+    {
+        anim.runtimeAnimatorController =
+            state == WorldState.Bloom ? bloomController : frostController;
     }
 
     public void Die()
@@ -169,25 +165,15 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
 
-        PlayerPrefs.SetString(
-            "LastLevel",
-            SceneManager.GetActiveScene().name
-        );
-
+        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
         PlayerPrefs.Save();
 
         StartCoroutine(LoadDeathMenu());
     }
 
-    private void OnDestroy()
-    {
-        OnPlayerJump = null;
-    }
-
     private IEnumerator LoadDeathMenu()
     {
         yield return new WaitForSeconds(1f);
-
         SceneManager.LoadScene("Menu_Derrota");
     }
 }
