@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 438780579}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2002406, y: -3.3556397, z: -10}
+  m_LocalPosition: {x: -4.3573995, y: -3.35859, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6254,6 +6254,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 262206184335581498, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150862524821986708, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1191406261060586215, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_SortingOrder
       value: -2
@@ -6265,6 +6273,14 @@ PrefabInstance:
     - target: {fileID: 3500443294814119972, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610049065704303779, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660936780723121514, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6303329168129453722, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_Pivot.x
@@ -6349,6 +6365,10 @@ PrefabInstance:
     - target: {fileID: 7611978062558182797, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_Name
       value: CanvasControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058428147285571561, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6652,7 +6672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -889.116
+      value: -1006.301
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalScale.x
@@ -6700,7 +6720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 322.96594
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

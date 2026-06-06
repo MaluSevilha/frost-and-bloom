@@ -50,37 +50,53 @@ public class TutorialManager : MonoBehaviour
         ShowCurrentStep();
     }
 
+    private bool WasContinuePressed()
+    {
+        return Input.GetKeyDown(KeyCode.Return)
+            || Input.GetKeyDown(KeyCode.KeypadEnter)
+            || Input.GetKeyDown(KeyCode.Space)
+            || Input.GetKeyDown(KeyCode.E);
+    }
+
+    private bool WasMovePressed()
+    {
+        bool keyboardMove =
+            Input.GetKeyDown(KeyCode.LeftArrow) ||
+            Input.GetKeyDown(KeyCode.RightArrow) ||
+            Input.GetKeyDown(KeyCode.A) ||
+            Input.GetKeyDown(KeyCode.D);
+
+        bool mobileMove =
+            MobileInputState.Instance != null &&
+            Mathf.Abs(MobileInputState.Instance.PlayerMoveX) > 0.01f;
+
+        return keyboardMove || mobileMove;
+    }
+
     private void Update()
     {
-        if (currentStepIndex >= steps.Length)
+        if (steps == null || currentStepIndex >= steps.Length)
             return;
 
         TutorialStep step = steps[currentStepIndex];
 
-        if (step.stepType == TutorialStepType.WaitMove)
+        switch (step.stepType)
         {
-            float moveX = 0f;
+            case TutorialStepType.PressContinue:
+                if (WasContinuePressed())
+                    NextStep();
+                break;
 
-            if (MobileInputState.Instance != null)
-            {
-                moveX = MobileInputState.Instance.PlayerMoveX;
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                    moveX = -1f;
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                    moveX = 1f;
-            }
-
-            if (Mathf.Abs(moveX) > 0.01f)
-                NextStep();
+            case TutorialStepType.WaitMove:
+                if (WasMovePressed())
+                    NextStep();
+                break;
         }
     }
 
     public void ContinuePressed()
     {
-        if (currentStepIndex >= steps.Length)
+        if (steps == null || currentStepIndex >= steps.Length)
             return;
 
         TutorialStep step = steps[currentStepIndex];
@@ -90,9 +106,10 @@ public class TutorialManager : MonoBehaviour
             NextStep();
         }
     }
+
     private void ShowCurrentStep()
     {
-        if (currentStepIndex >= steps.Length)
+        if (steps == null || currentStepIndex >= steps.Length)
         {
             EndTutorial();
             return;
@@ -177,8 +194,10 @@ public class TutorialManager : MonoBehaviour
 
     private void HandlePlayerJump()
     {
-        if (currentStepIndex < steps.Length &&
-            steps[currentStepIndex].stepType == TutorialStepType.WaitJump)
+        if (steps == null || currentStepIndex >= steps.Length)
+            return;
+
+        if (steps[currentStepIndex].stepType == TutorialStepType.WaitJump)
         {
             NextStep();
         }
@@ -186,8 +205,10 @@ public class TutorialManager : MonoBehaviour
 
     private void HandleWorldSwitch()
     {
-        if (currentStepIndex < steps.Length &&
-            steps[currentStepIndex].stepType == TutorialStepType.WaitSwitch)
+        if (steps == null || currentStepIndex >= steps.Length)
+            return;
+
+        if (steps[currentStepIndex].stepType == TutorialStepType.WaitSwitch)
         {
             NextStep();
         }
