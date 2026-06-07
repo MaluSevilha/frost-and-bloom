@@ -695,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 210588758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.565168, y: -3.6948202, z: -10}
+  m_LocalPosition: {x: -3.408012, y: -3.69293, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1139,10 +1139,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -41
       objectReference: {fileID: 0}
+    - target: {fileID: 2465417107558861962, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018797210919911909, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4081066974486622167, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3909258501301403908, guid: aa4a76949acef7d4db2d50e8f14b0326, type: 3}
+    - target: {fileID: 4172265711328317365, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4343616191956522156, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1253,6 +1265,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303329168129453722, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467253337891102944, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7611978062558182797, guid: ea808fd15b0fd724889fb9ca61ed4f4f, type: 3}
@@ -8190,6 +8206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasPause
       objectReference: {fileID: 0}
+    - target: {fileID: 3460089469055416977, guid: 01189c43dde9b974fa238507dd175846, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5865443525258810849, guid: 01189c43dde9b974fa238507dd175846, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9130,7 +9150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -986.957
+      value: -871.765
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9166,7 +9186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 279
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasPause
       objectReference: {fileID: 0}
+    - target: {fileID: 3460089469055416977, guid: 01189c43dde9b974fa238507dd175846, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5865443525258810849, guid: 01189c43dde9b974fa238507dd175846, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -376,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 438780579}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3573995, y: -3.35859, z: -10}
+  m_LocalPosition: {x: -3.2002406, y: -3.3556397, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6672,7 +6676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1006.301
+      value: -891.109
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalScale.x
@@ -6720,7 +6724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 300
+      value: 283.5738
       objectReference: {fileID: 0}
     - target: {fileID: 3803476000529055563, guid: ed90acdffe20aeb489605635e50a437f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
